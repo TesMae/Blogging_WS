@@ -1,0 +1,17 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "text_analysis.js",
+  "scripts": {
+    "start": "node text_analysis.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.0",
+    "text-readability": "^1.0.4",
+    "unfluff": "^3.2.0"
+  }
+}
