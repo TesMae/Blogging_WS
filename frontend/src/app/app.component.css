@@ -1,0 +1,4 @@
+#grad {
+    min-height: 100%;
+    background-image: radial-gradient(rgb(255, 255, 255), rgb(236, 236, 236), rgb(224, 224, 224));
+}

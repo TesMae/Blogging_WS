@@ -1,0 +1,21 @@
+:root {
+	--canvasColor: #cfc7c7;
+}
+
+body {
+    background: var(--canvasColor);
+    width: 80%;
+    margin: 10vw auto;
+}
+
+.heading {
+    font-family: "Playfair Display", serif;
+    font-size: 2em;
+}
+
+.text {
+    margin: 35px 70px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.25em;
+    line-height: 1.5;
+}

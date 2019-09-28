@@ -1,0 +1,70 @@
+<div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <form>
+                    <div class="form-group">
+                        <label for="url" class="control-label">Please provide the URL of the article:</label>
+                        <input [(ngModel)]="article_url" type="text" class="form-control" id="article_url" name="url" placeholder="www.example/article1.com">
+                    </div>
+                    <div class="form-group"> 
+                        <div class="col text-center">
+                            <button (click)="search()" type="submit" class="btn btn-default">Analyse</button>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- /col -->
+        </div><!-- /row -->
+    </div><!-- /container -->
+
+    <div *ngIf="show" class="container">
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <h3 class="heading">    
+                    {{ article[0].title }}
+                </h3>
+                <p class="text">
+                    {{ article[0].text_body }}
+                </p>
+            </div><!-- /col -->
+            <div class="col-6 col-md-4">
+                <div class="tabs-left">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#a" data-toggle="tab"><span class="glyphicon glyphicon-cog"></span></a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="a">
+                            <h3>Content Analysis</h3>
+                            <ul class="list-group pull-left">
+                                <li class="list-group-item">
+                                    <h4 *ngIf="article[0].title_exist == 0" class="text-danger"> The text does not contain any subheadings. Add at least one subheading.&nbsp; &nbsp;<span class="badge pull-right">ø</span></h4>
+                                    <h4 *ngIf="article[0].title_exist == 1" class="text-success"> The text does contain subheadings. which is good.&nbsp; &nbsp;<span class="badge pull-right">ø</span></h4>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4 *ngIf="article[0].img_exist == 0"> No images appear in this page, consider adding some as appropriate.&nbsp; &nbsp;<span class="badge pull-right">ø</span></h4>
+                                    <h4 *ngIf="article[0].img_exist == 1" class="text-success"> The text does contain images. which is good.&nbsp; &nbsp;<span class="badge pull-right">ø</span></h4>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4 *ngIf="article[0].FRE_score > 55" class="text-success"> The copy scores {{ article[0].FRE_score }} in the Flesch Reading Ease test, which is considered ok to read.&nbsp; &nbsp;<span class="badge pull-right">ø</span></h4>
+                                    <h4 *ngIf="article[0].FRE_score < 55 && article[0].FRE_score > 35" class="text-warning"> The copy scores {{ article[0].FRE_score }} in the Flesch Reading Ease test, which is considered fairly difficult to read. Try to make shorter sentences to improve readability.&nbsp; &nbsp;<span class="badge pull-right">ø</span></h4>
+                                    <h4 *ngIf="article[0].FRE_score < 35 && article[0].FRE_score > 0" class="text-danger"> The copy scores {{ article[0].FRE_score }} in the Flesch Reading Ease test, which is considered very difficult to read. Try to make shorter sentences, using less difficult words to improve readability.&nbsp; &nbsp;<span class="badge pull-right">ø</span></h4>                            
+                                    <h4 *ngIf="article[0].FRE_score < 0" class="text-danger"> The copy scores 0 in the Flesch Reading Ease test, which is considered very difficult to read. Try to make shorter sentences, using less difficult words to improve readability.&nbsp; &nbsp;<span class="badge pull-right">ø</span></h4>                            
+                                </li>
+                                <li class="list-group-item">
+                                    <h4 *ngIf="article[0].words > 500" class="text-success"> The text contains {{ article[0].words }} words. This is more than or equal to the recommended minimum of 300 words.&nbsp; &nbsp;<span class="badge pull-right">ø</span></h4>
+                                    <h4 *ngIf="article[0].words < 300" class="text-danger"> The text contains {{ article[0].words }} words. This is below the recommended minimum of 300 words. Add more content that is relevant for the topic.&nbsp; &nbsp;<span class="badge pull-right">ø</span></h4>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4 *ngIf="article[0].long_paragraphs == 0" class="text-success"> None of the paragraphs are too long, which is great.&nbsp; &nbsp;<span class="badge pull-right">ø</span></h4>
+                                    <h4 *ngIf="article[0].long_paragraphs > 0" class="text-danger"> {{ article[0].long_paragraphs }} of the paragraphs contains more than the recommended maximum of 150 words. Are you sure all information is about the same topic, and therefore belongs in one single paragraph?.&nbsp; &nbsp;<span class="badge pull-right">ø</span></h4>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4 *ngIf="article[0].long_sentences < 25" class="text-success"> {{ article[0].long_sentences }}% of the sentences contain more than 20 words, which is less than or equal to the recommended maximum of 25%.&nbsp; &nbsp;<span class="badge pull-right">ø</span></h4>
+                                    <h4 *ngIf="article[0].long_sentences > 25" class="text-danger"> {{ article[0].long_sentences }}% of the sentences contain more than 20 words, which is more than the recommended maximum of 25%..&nbsp; &nbsp;<span class="badge pull-right">ø</span></h4>    
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!-- /tab-content -->
+                </div><!-- /tabbable -->
+            </div><!-- /col -->
+        </div><!-- /row -->
+    </div><!-- /container -->
