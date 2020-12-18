@@ -25,7 +25,7 @@ npm install
 ```
 
 ## Running
-Finally run your project
+Finally, run your project.
 
 In Node_API directory 
 ```
