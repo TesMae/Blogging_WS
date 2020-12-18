@@ -1,18 +1,14 @@
 # Blogging_WS
 
-This is a Single Page Web Application that extract data from HTML pages, process and analyse text.
+This is a Web Application that extract, clean and analyse data from HTML pages, in order to improve the ranking on google (SEO).
 
 ![alt text](https://github.com/TesMae/Blogging_WS/blob/master/Blogging_WS.PNG)
 
 website : https://simple.wikipedia.org/wiki/Paragraph
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
 
-What things you need to install the software 
+The prerequisites of this project are :
 
 * NodeJS
 * Express
@@ -21,22 +17,17 @@ What things you need to install the software
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+First, you need to import articles.sql in your MySQL database.
 
-Import articles.sql in your MySQL database.
-
-In Node_API directory
-```
-npm install 
-```
-
-In frontend directory
+Then, install your node_modules in Node_API and frontend directories:
 ```
 npm install 
 ```
 
 ## Running
-In Node_API directory
+Finally run your project
+
+In Node_API directory 
 ```
 npm start 
 ```
